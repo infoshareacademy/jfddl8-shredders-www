@@ -1,0 +1,20 @@
+main section{
+    border: 1px solid black;
+    margin: 5px 5px;
+    padding: 25px 0;
+}
+
+main {
+    border: 3px solid red;
+    margin-top: 10px;
+}
+
+main > p{
+    color: red;
+}
+
+footer {
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 10px 0;
+}

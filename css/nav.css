@@ -1,0 +1,19 @@
+.nav{
+    border: 1px solid black;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.nav ul{
+    display: flex;
+    justify-content: space-around;
+}
+.nav__li {
+    margin: 5px 50px 5px 50px;
+    display:inline-block;
+}
+
+.nav__link{
+    text-decoration: none;
+}
