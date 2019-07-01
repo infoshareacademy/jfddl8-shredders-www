@@ -21,3 +21,11 @@ footer {
     margin-top: 5px;
     padding: 10px 0;
 }
+
+.cookie__alert {
+    border:1px solid black;
+    width: 70%;
+    margin:auto;
+    text-align: center;
+    padding: 10px;
+}
