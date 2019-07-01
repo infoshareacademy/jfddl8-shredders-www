@@ -1,4 +1,6 @@
-
+*{
+    margin :0;
+}
 main section{
     border: 1px solid black;
     margin: 5px 5px;
