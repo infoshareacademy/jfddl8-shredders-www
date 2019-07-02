@@ -1,0 +1,43 @@
+
+.cookie__box {
+
+  width: 100%;
+  padding: 10px;
+  bottom:0;
+  background-color: white;
+  display:flex;
+  flex-direction: row;
+  position: fixed;
+  flex-wrap: wrap;
+  bottom: 0;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+
+}
+
+.cookie__alert {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.cookie__button {
+
+  
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.cookie__button:hover{
+  cursor: pointer;
+
+}
+
+@media (max-width:750px) {
+
+
+
+}
