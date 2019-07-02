@@ -14,3 +14,7 @@ $('.sm-nav').click(function() {
 $('.nav__sm-close').click(function() {
     nav.slideUp();
 })
+
+$('.nav__link').click(function() {
+    nav.hide();
+})

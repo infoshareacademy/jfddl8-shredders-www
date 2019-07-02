@@ -45,3 +45,9 @@
             flex-direction: column;
         }
     }
+    
+    @media (max-width:440px) {
+        .teammate_picture {
+            width: 180px;
+        }
+    }
