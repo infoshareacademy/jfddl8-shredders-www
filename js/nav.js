@@ -1,7 +1,8 @@
 (function() {
   const nav = $(".nav");
+  const media = window.matchMedia("(max-width: 785px)");
   $(window).resize(function() {
-    if ($(window).width() < 785) {
+    if (media.matches) {
       nav.hide();
     } else {
       nav.show();
@@ -17,6 +18,12 @@
   });
 
   $(".nav__link").click(function() {
-    nav.hide();
+    let navHeight = 60;
+    if (media.matches) {
+      nav.hide();
+      navHeight = 0;
+    }
+    let scrollTo = $(this).attr('class').split(" ")[0]
+    $("html, body").animate({ scrollTop: $(scrollTo).offset().top-navHeight }, "slow");
   });
 })();

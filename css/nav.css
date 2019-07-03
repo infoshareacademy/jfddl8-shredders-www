@@ -4,6 +4,7 @@
     position: sticky;
     top: 0;
     background-color: #050605;
+    z-index: 100
 }
 
 .nav ul {
@@ -23,6 +24,7 @@
     color: white;
     font-weight: bold;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .nav__link:hover {
