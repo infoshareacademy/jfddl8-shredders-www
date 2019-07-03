@@ -28,6 +28,11 @@
   });
 
   $(window).scroll(function() {
+    let navHeight = 60;
+    if (media.matches) {
+      nav.hide();
+      navHeight = 0;
+    }
     const remClass = function(){
       $(".nav__link").removeClass('current-nav')
     }
@@ -36,7 +41,7 @@
       $('.#scroll-to-team').addClass('current-nav')
     }
 
-    if ($(window).scrollTop() === $('#scroll-to-product-info').offset().top){
+    if ($(window).scrollTop() >= $('#scroll-to-product-info').offset().top-navHeight && $(window).scrollTop() <= $('#scroll-to-team').offset().top-navHeight ){
       remClass();
       $('.#scroll-to-product-info').addClass('current-nav')
     }
