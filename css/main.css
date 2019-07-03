@@ -1,7 +1,8 @@
-*{
-    margin :0;
+* {
+    margin: 0;
 }
-main section{
+
+main section {
     border: 1px solid black;
     margin: 5px 5px;
     padding: 25px 0;
@@ -12,7 +13,7 @@ main {
     margin-top: 10px;
 }
 
-main > p{
+main>p {
     color: red;
 }
 
@@ -20,4 +21,6 @@ footer {
     border: 1px solid black;
     margin-top: 5px;
     padding: 10px 0;
+    display:flex;
+    justify-content: center;
 }
