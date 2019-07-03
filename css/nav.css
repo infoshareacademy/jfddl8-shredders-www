@@ -27,6 +27,10 @@
     cursor: pointer;
 }
 
+.current-nav{
+    color: red;
+}
+
 .nav__link:hover {
     color: rgb(198, 206, 243);
 }

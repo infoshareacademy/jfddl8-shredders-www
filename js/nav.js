@@ -26,4 +26,23 @@
     let scrollTo = $(this).attr('class').split(" ")[0]
     $("html, body").animate({ scrollTop: $(scrollTo).offset().top-navHeight }, "slow");
   });
+
+  $(window).scroll(function() {
+    const remClass = function(){
+      $(".nav__link").removeClass('current-nav')
+    }
+    if ($(window).scrollTop() === $('#scroll-to-team').offset().top){
+      remClass();
+      $('.#scroll-to-team').addClass('current-nav')
+    }
+
+    if ($(window).scrollTop() === $('#scroll-to-product-info').offset().top){
+      remClass();
+      $('.#scroll-to-product-info').addClass('current-nav')
+    }
+    // console.log($(window).scrollTop())
+    // console.log($('#scroll-to-product-info').offset().top)
+  });
+
+
 })();
