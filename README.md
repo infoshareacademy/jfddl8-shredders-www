@@ -4,3 +4,4 @@ Shredders team website
 
 [Here](http://music-tripper.jfddl8.is-academy.pl)
 jakaś zmiana
+kolejna zmiana
