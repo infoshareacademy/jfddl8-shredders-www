@@ -30,46 +30,53 @@
     <link rel="stylesheet" href="css/info.css" />
     <link rel="stylesheet" href="css/cookies.css" />
     <link rel="stylesheet" href="css/fontello.css" />
+    <link rel="stylesheet" href="css/hero.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>MusicTripper</title>
   </head>
 
-  <body name="top">
+  <body>
     <div class="sm-nav"></div>
     <nav class="nav">
       <div class="nav__sm-close"></div>
       <ul>
         <li class="nav__li">
-          <a href="#top" class="nav__link">Strona główna</a>
+          <span class="scroll-to-top nav__link current-nav">Strona główna</span>
         </li>
         <li class="nav__li">
-          <a href="#feature" class="nav__link">Funkcje</a>
+          <span class="scroll-to-feature nav__link">Funkcje</span>
         </li>
         <li class="nav__li">
-          <a href="#product-info" class="nav__link">Więcej</a>
+          <span class="scroll-to-product-info nav__link">Więcej</span>
         </li>
         <li class="nav__li">
-          <a href="#team-info" class="nav__link">Zespół</a>
+          <span class="scroll-to-team nav__link">Zespół</span>
         </li>
         <li class="nav__li">
-          <a href="#contact" class="nav__link">Kontakt</a>
+          <span class="scroll-to-contact nav__link">Kontakt</span>
         </li>
       </ul>
     </nav>
-    <header></header>
+    <header id="scroll-to-top">
+      <div>
+        <img
+          src="./img/heroHD_tekst.jpg"
+          alt="HERO BANNER"
+          class="hero_picture"
+        />
+      </div>
+    </header>
 
     <main>
       <p>MAIN</p>
-      <section id="hero">
-        Hero
-      </section>
 
-      <section id="feature">
+      <section id="scroll-to-feature">
         Feature
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </section>
 
-      <section class="product-info">
+      <section id="scroll-to-product-info" class="product-info">
         <picture>
           <img
             class="photo"
@@ -106,7 +113,7 @@
         </div>
       </section>
 
-      <section id="team-info" class="teammates">
+      <section id="scroll-to-team" class="teammates">
         <div class="teammate">
           <div class="img-team">
             <img
@@ -181,17 +188,19 @@
         Premiere form
       </section>
 
-      <section id="contact">
+      <section id="scroll-to-contact">
         contact
       </section>
     </main>
 
     <div class="up-arrow">
-      <a href="#top">
-        <img src="img/up-arrow.png" width="50px" />
-      </a>
+      <img src="img/up-arrow.png" width="50px" />
     </div>
-    <footer></footer>
+
+    <footer>
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </footer>
+
     <div class="cookie__box">
       <div class="cookie__alert">
         Ten serwis wykorzystuje pliki cookies. Korzystanie z witryny oznacza
@@ -204,5 +213,6 @@
     <script src="js/main.js"></script>
     <script src="js/cookies.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/up-arrow.js"></script>
   </body>
 </html>
