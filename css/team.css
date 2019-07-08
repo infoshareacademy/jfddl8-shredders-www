@@ -9,33 +9,23 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-content: space-around;
   align-items: center;
 }
 
 .teammate_picture {
   border-radius: 45%;
-  width: 250px;
+  max-width: 250px;
+  max-height: 250px;
 }
 
-.teammate__about {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-}
 
 @media (max-width: 1051px) {
   .teammates {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .teammate {
-    flex-direction: row;
-    margin-top: 10px;
-    padding-bottom: 10px;
-  }
-  .teammate_picture {
-    margin-right: 20px;
+  .teammate{
+    margin-bottom: 20px;
   }
 }
 
