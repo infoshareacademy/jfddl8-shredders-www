@@ -4,16 +4,24 @@
   const navLink = document.querySelectorAll('.nav__link')
 
   window.addEventListener('resize', function() {
-    media.matches ? (nav.style.display = 'none') : (nav.style.display = 'block')
+    if (media.matches) {
+      nav.style.height = '0px'
+      nav.style.display = 'none'
+    } else {
+      nav.style.height = '80px'
+      nav.style.display = 'block'
+    }
   })
 
   document.querySelector('.sm-nav').addEventListener('click', function() {
+    nav.style.height = '200px'
     nav.style.display = 'block'
   })
 
   document
     .querySelector('.nav__sm-close')
     .addEventListener('click', function() {
+      nav.style.height = '0px'
       nav.style.display = 'none'
     })
 
@@ -77,6 +85,13 @@
         currentNav[i].classList.add('current-nav')
         break
       }
+    }
+
+    if (media.matches) {
+      nav.style.height = '200px'
+    } else {
+      if (window.scrollY >= 20) nav.style.height = '25px'
+      else nav.style.height = '80px'
     }
   })
 })()
