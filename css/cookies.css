@@ -5,7 +5,7 @@
   padding: 10px;
   bottom:0;
   background-color: white;
-  display:flex;
+  display:none;
   flex-direction: row;
   position: fixed;
   flex-wrap: wrap;
