@@ -1,10 +1,11 @@
 
 .cookie__box {
 
+ 
   width: 100%;
   padding: 10px;
   bottom:0;
-  background-color: white;
+  background-color:black;
   display:flex;
   flex-direction: row;
   position: fixed;

@@ -9,8 +9,12 @@
     color: whitesmoke;
     overflow-x:hidden; 
     background-color: #dfe6e9; 
+    font-family: 'Roboto Condensed', sans-serif;
+    /* background-image: linear-gradient( 90deg, rgb(197, 201, 218), rgb(68, 75, 104)); */
+    background-image: linear-gradient( 90deg, rgb(95, 111, 175), rgb(49, 53, 66));
+}
   
-	
+    
 
     
  }
@@ -27,7 +31,7 @@ main section {
 main {
    
     margin-top: 10px;
-    background-color: #ff7675;
+    /* background-image: linear-gradient( 90deg, rgb(95, 111, 175), rgb(49, 53, 66)); */
 }
 
 .hero {
@@ -45,9 +49,7 @@ main {
 }
 
 
-main>p {
-    color: red;
-}
+
 
 footer {
   

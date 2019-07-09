@@ -1,10 +1,12 @@
 .nav {
+    
     width: 100%;
     height: 60px;
     position: fixed;
     top: 0;
     background-color: #050605;
-    z-index: 100
+    z-index: 100;
+    font-weight: bold;
 }
 
 .nav ul {
@@ -28,11 +30,11 @@
 }
 
 .current-nav{
-    color: red;
+    color: rgb(99, 109, 156);
 }
 
 .nav__link:hover {
-    color: rgb(198, 206, 243);
+    color: rgb(169, 180, 224);
 }
 
 @media (max-width:785px) {
