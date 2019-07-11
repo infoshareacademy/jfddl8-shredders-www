@@ -1,10 +1,16 @@
 (function() {
-  const upArrow = $(".up-arrow");
-  $(window).scroll(function() {
-    upArrow.show();
-    if ($(window).scrollTop() == 0) upArrow.hide();
-  });
-  upArrow.click(function(){
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+  const upArrow = document.querySelector('.up-arrow');
+
+  window.addEventListener('scroll', function(){
+    upArrow.style.display = 'block'
+    if (window.scrollY == 0) upArrow.style.display = 'none'
+  })
+
+  upArrow.addEventListener('click', function(){
+    window.scrollTo({
+      top:0,
+      left:0,
+      behavior: 'smooth'
+    })
    })
 })();

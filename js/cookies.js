@@ -1,8 +1,12 @@
 (function() {
-  if (localStorage.getItem("confirmed") == "1") $(".cookie__box").hide();
+  const cookieBox = document.querySelector('.cookie__box')
+  const cookieButton = document.querySelector('.cookie__button')
+  if (localStorage.getItem("confirmed") !== "1") {
+    cookieBox.style.display = 'flex'
+  }
 
-  $(".cookie__button").click(function() {
-    $(".cookie__box").hide();
+  cookieButton.addEventListener('click', function(){
+    cookieBox.style.display = 'none'
     localStorage.setItem("confirmed", "1");
-  });
+  })
 })();
