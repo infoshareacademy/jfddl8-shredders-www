@@ -1,10 +1,16 @@
 .nav {
+    
     width: 100%;
     height: 60px;
     position: fixed;
     top: 0;
-    background-color: #050605;
-    z-index: 100
+    background-color: #d4b4db;
+    z-index: 100;
+    font-weight: bold;
+    opacity:0.85;
+    -webkit-box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
+box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
 }
 
 .nav ul {
@@ -21,18 +27,19 @@
 
 .nav__link {
     text-decoration: none;
-    color: white;
+ 
     font-weight: bold;
-    font-size: 20px;
+    font-size: 23px;
     cursor: pointer;
+    color: rgb(57, 27, 82);
 }
 
 .current-nav{
-    color: red;
+    color: rgb(57, 27, 82);
 }
 
 .nav__link:hover {
-    color: rgb(198, 206, 243);
+    color: rgb(37, 17, 46);
 }
 
 @media (max-width:785px) {
@@ -56,7 +63,7 @@
         left: 10px;
         height: 30px;
         width: 30px;
-        background-color: black;
+        background-color: rgb(194, 180, 180);
     }
     .nav__sm-close {
         position: absolute;
