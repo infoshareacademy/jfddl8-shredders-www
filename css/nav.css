@@ -39,7 +39,7 @@
 @media (max-width: 785px) {
   .nav {
     height: 200px;
-    display: none;
+    top: -200px;
   }
   .nav ul {
     flex-direction: column;
@@ -55,9 +55,12 @@
     position: fixed;
     top: 10px;
     left: 10px;
-    height: 30px;
-    width: 30px;
-    background-color: black;
+    height: 40px;
+    width: 40px;
+    background-image: url('/img/hamburger.png');
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    cursor: pointer;
   }
   .nav__sm-close {
     position: absolute;
