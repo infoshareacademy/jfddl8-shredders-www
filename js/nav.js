@@ -3,7 +3,7 @@
   const media = window.matchMedia('(max-width: 785px)')
   const navLink = document.querySelectorAll('.nav__link')
   const smNav = document.querySelector('.sm-nav')
-  const navSmClose = document.querySelector('.nav__sm-close')
+  const navUl = document.querySelector('.nav ul')
 
   window.addEventListener('resize', function() {
     if (media.matches) {
@@ -15,13 +15,13 @@
       nav.style.top = '0'
     }
   })
+  document.body.addEventListener('click', function(evt) {
+    if (evt.target !== smNav && evt.target !== navUl && media.matches)
+      nav.style.top = '-200px'
+  })
 
   smNav.addEventListener('click', function() {
     nav.style.top = '0'
-  })
-
-  navSmClose.addEventListener('click', function() {
-    nav.style.top = '-200px'
   })
 
   navLink.forEach(function(link) {
@@ -33,7 +33,7 @@
   const scrollNav = function(evt) {
     let navHeight = 60
     if (media.matches) {
-      nav.style.display = 'none'
+      nav.style.top = '-200'
       navHeight = 0
     }
 

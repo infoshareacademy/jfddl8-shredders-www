@@ -1,27 +1,33 @@
 * {
+  box-sizing: border-box;
+}
+body {
+  position: relative;
   margin: 0;
   color: whitesmoke;
+  overflow-x: hidden;
+  background-color: #dfe6e9;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-image: linear-gradient(
+    90deg,
+    rgb(197, 201, 218),
+    rgb(68, 75, 104)
+  );
+  /* background-image: linear-gradient( 90deg, rgb(95, 111, 175), rgb(39, 40, 43)); */
 }
 
 html {
   scroll-behavior: smooth;
 }
-body {
-  margin: 0;
-  color: whitesmoke;
-  overflow-x: hidden;
-  background-color: #dfe6e9;
-}
 
 main section {
-  margin: 5px 5px;
+  margin: 0px 5px;
   padding: 25px 0;
   background-image: url(/pw_maze_black/pw_maze_black_@2X.png);
 }
 
 main {
-  margin-top: 10px;
-  background-color: #ff7675;
+  background-image: linear-gradient(90deg, rgb(95, 111, 175), rgb(49, 53, 66));
 }
 
 .hero {
@@ -33,10 +39,6 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-main > p {
-  color: red;
 }
 
 footer {
