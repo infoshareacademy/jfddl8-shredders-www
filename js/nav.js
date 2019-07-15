@@ -2,20 +2,27 @@
   const nav = document.querySelector('.nav')
   const media = window.matchMedia('(max-width: 785px)')
   const navLink = document.querySelectorAll('.nav__link')
+  const smNav = document.querySelector('.sm-nav')
+  const navUl = document.querySelector('.nav ul')
 
   window.addEventListener('resize', function() {
-    media.matches ? (nav.style.display = 'none') : (nav.style.display = 'block')
+    if (media.matches) {
+      nav.style.height = '200px'
+      nav.style.top = '-200px'
+    } else {
+      nav.style.height = '80px'
+      nav.style.display = 'block'
+      nav.style.top = '0'
+    }
+  })
+  document.body.addEventListener('click', function(evt) {
+    if (evt.target !== smNav && evt.target !== navUl && media.matches)
+      nav.style.top = '-200px'
   })
 
-  document.querySelector('.sm-nav').addEventListener('click', function() {
-    nav.style.display = 'block'
+  smNav.addEventListener('click', function() {
+    nav.style.top = '0'
   })
-
-  document
-    .querySelector('.nav__sm-close')
-    .addEventListener('click', function() {
-      nav.style.display = 'none'
-    })
 
   navLink.forEach(function(link) {
     link.addEventListener('click', function(evt) {
@@ -26,7 +33,7 @@
   const scrollNav = function(evt) {
     let navHeight = 60
     if (media.matches) {
-      nav.style.display = 'none'
+      nav.style.top = '-200'
       navHeight = 0
     }
 
@@ -58,7 +65,7 @@
   window.addEventListener('scroll', function() {
     let navHeight = 150
     if (media.matches) {
-      nav.hide()
+      nav.style.top = '-200px'
       navHeight = 100
     }
 
@@ -77,6 +84,13 @@
         currentNav[i].classList.add('current-nav')
         break
       }
+    }
+
+    if (media.matches) {
+      nav.style.height = '200px'
+    } else {
+      if (window.scrollY >= 20) nav.style.height = '25px'
+      else nav.style.height = '80px'
     }
   })
 })()
