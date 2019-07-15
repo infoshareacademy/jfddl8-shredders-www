@@ -1,4 +1,13 @@
 .hero_picture {
   max-width: 100%;
   height: auto;
+  
+}
+
+.hero {
+
+  -webkit-box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
+  box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
+
 }

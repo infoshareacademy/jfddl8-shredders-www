@@ -1,71 +1,96 @@
 ;(function() {
-  const nav = $(".nav")
-  const media = window.matchMedia("(max-width: 785px)")
-  $(window).resize(function() {
+  const nav = document.querySelector('.nav')
+  const media = window.matchMedia('(max-width: 785px)')
+  const navLink = document.querySelectorAll('.nav__link')
+  const smNav = document.querySelector('.sm-nav')
+  const navUl = document.querySelector('.nav ul')
+
+  window.addEventListener('resize', function() {
     if (media.matches) {
-      nav.hide()
+      nav.style.height = '200px'
+      nav.style.top = '-200px'
     } else {
-      nav.show()
+      nav.style.height = '80px'
+      nav.style.display = 'block'
+      nav.style.top = '0'
     }
   })
-
-  $(".sm-nav").click(function() {
-    nav.slideDown()
+  document.body.addEventListener('click', function(evt) {
+    if (evt.target !== smNav && evt.target !== navUl && media.matches)
+      nav.style.top = '-200px'
   })
 
-  $(".nav__sm-close").click(function() {
-    nav.slideUp()
+  smNav.addEventListener('click', function() {
+    nav.style.top = '0'
   })
 
-  $(".nav__link").click(function() {
+  navLink.forEach(function(link) {
+    link.addEventListener('click', function(evt) {
+      scrollNav(evt)
+    })
+  })
+
+  const scrollNav = function(evt) {
     let navHeight = 60
     if (media.matches) {
-      nav.hide()
+      nav.style.top = '-200'
       navHeight = 0
     }
-    let scrollTo = $(this)
-      .attr("class")
-      .split(" ")[0]
-    $("html, body").animate(
-      { scrollTop: $(`#${scrollTo}`).offset().top - navHeight },
-      "slow"
-    )
-  })
+
+    let scrollTo = evt.target.className.split(' ')[0]
+    const scrollPx =
+      document.querySelector('#' + scrollTo).offsetTop - navHeight
+
+    window.scrollTo({
+      top: scrollPx,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
 
   const currentNav = [
-    $(".scroll-to-top"),
-    $(".scroll-to-feature"),
-    $(".scroll-to-product-info"),
-    $(".scroll-to-team"),
-    $(".scroll-to-contact")
+    document.querySelector('.scroll-to-top'),
+    document.querySelector('.scroll-to-feature'),
+    document.querySelector('.scroll-to-product-info'),
+    document.querySelector('.scroll-to-team'),
+    document.querySelector('.scroll-to-contact')
   ]
 
   const remClass = function() {
-    $(".nav__link").removeClass("current-nav")
+    navLink.forEach(function(link) {
+      link.classList.remove('current-nav')
+    })
   }
 
-  $(window).scroll(function() {
+  window.addEventListener('scroll', function() {
     let navHeight = 150
     if (media.matches) {
-      nav.hide()
+      nav.style.top = '-200px'
       navHeight = 100
     }
 
-    const scrollPosition = $(window).scrollTop()
+    const scrollPosition = document.documentElement.scrollTop
     const sectionPos = [
       0,
-      $("#scroll-to-feature").offset().top,
-      $("#scroll-to-product-info").offset().top,
-      $("#scroll-to-team").offset().top,
-      $("#scroll-to-contact").offset().top
+      document.querySelector('#scroll-to-feature').offsetTop,
+      document.querySelector('#scroll-to-product-info').offsetTop,
+      document.querySelector('#scroll-to-team').offsetTop,
+      document.querySelector('#scroll-to-contact').offsetTop
     ]
 
     for (let i = sectionPos.length - 1; i >= 0; i--) {
       if (scrollPosition >= sectionPos[i] - navHeight) {
         remClass()
-        currentNav[i].addClass("current-nav")
+        currentNav[i].classList.add('current-nav')
         break
       }
+    }
+
+    if (media.matches) {
+      nav.style.height = '200px'
+    } else {
+      if (window.scrollY >= 20) nav.style.height = '25px'
+      else nav.style.height = '80px'
     }
   })
 })()
