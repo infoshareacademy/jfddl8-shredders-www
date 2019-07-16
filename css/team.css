@@ -14,17 +14,16 @@
 
 .teammate_picture {
   border-radius: 100%;
-  max-width: 250px;
-  max-height: 250px;
+  width: 250px;
+  height: 250px;
 }
-
 
 @media (max-width: 1051px) {
   .teammates {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .teammate{
+  .teammate {
     margin-bottom: 20px;
   }
 }
