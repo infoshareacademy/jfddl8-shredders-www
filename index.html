@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="css/cookies.css" />
     <link rel="stylesheet" href="css/fontello.css" />
     <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="newsletter.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>MusicTripper</title>
@@ -194,8 +195,23 @@
         </div>
       </section>
 
-      <section id="premiere-form">
-        Premiere form
+      <section>
+        <div class="newsletter">
+          <h1>Spodobała Ci się apka ? Chcesz wiedzieć więcej ? Zapisz się !</h1>
+          <form action="https://emaillabs-sender.herokuapp.com/" method="POST">
+            <input
+              class="input"
+              type="text"
+              name="emails[]"
+              placeholder="Wpisz swój e-mail"
+            />
+            <input type="hidden" name="subject" value="Tytuł" />
+            <input type="hidden" name="message" value="Treść" />
+            <input type="hidden" name="fromName" value="Nazwa Apki" />
+            <input type="hidden" name="redirect" value="strona z naszą grą" />
+            <input class="button" type="submit" value="Wyślij!" />
+          </form>
+        </div>
       </section>
 
       <section id="scroll-to-contact">

@@ -1,0 +1,35 @@
+.newsletter {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.input {
+  width: 210px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 7px;
+  background: #eee;
+  padding: 1em 2em;
+  outline: none;
+  border: none;
+  color: #222;
+}
+.button {
+  background-image: linear-gradient(
+    to left,
+    rgba(45, 15, 83, 0.75) 0%,
+    rgba(145, 149, 251, 0.86) 100%
+  );
+  font-family: "Abel", sans-serif;
+  padding: 0.8em 2em;
+  margin: 2em 0 0 0;
+  border-radius: 7px;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1em;
+  outline: none;
+  border: none;
+}
