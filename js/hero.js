@@ -66,7 +66,6 @@ const nextSlide = () => {
 
 const prevSlide = () => {
     prevSlideIndex = currentSlideIndex;
-
     const prevSlide = currentSlideIndex - 1;
     if (prevSlide < 0) {
         currentSlideIndex = slides.length - 1;
@@ -81,6 +80,7 @@ const prevSlide = () => {
 
 document.querySelector('.prev').addEventListener("click", () => {
     if (canIClick) {
+    
         prevSlide();
         canIClick = false;
         setTimeout(() => canIClick = true, SLIDETIME);
