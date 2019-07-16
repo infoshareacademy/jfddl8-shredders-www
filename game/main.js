@@ -3,9 +3,11 @@ class Game {
     this.level = +localStorage.getItem('level') || 1
     this.score = +localStorage.getItem('score') || 0
     this.lives = +localStorage.getItem('lives') || 5
+    this.gameTick = 40 //ms
 
     this.cointainer = document.querySelector('.container')
 
+    this.drum = null
     this.gameBoxLeftLives = null
     this.gameBoxLeftLevel = null
     this.gameBoxRightScore = null
@@ -47,6 +49,9 @@ class Game {
 
     this.splashScreenInit()
 
+    this.drum = new Drum(gameBoxCenter)
+    gameBoxCenter.appendChild(this.drum)
+
     return this
   }
 
@@ -72,4 +77,10 @@ class Game {
   divCreate() {
     return document.createElement('div')
   }
+
+  startGame() {
+    const interval = setInterval(() => {}, this.gameTick)
+  }
 }
+
+class Drum {}
