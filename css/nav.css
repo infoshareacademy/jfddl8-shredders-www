@@ -1,76 +1,76 @@
 .nav {
-    
-    width: 100%;
-    height: 60px;
-    position: fixed;
-    top: 0;
-    background-color: #d4b4db;
-    z-index: 100;
-    font-weight: bold;
-    opacity:0.85;
-    -webkit-box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
-box-shadow: 5px 12px 21px 0px rgba(0,0,0,0.75);
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  background-color: #d4b4db;
+  z-index: 100;
+  font-weight: bold;
+  opacity: 0.85;
+  -webkit-box-shadow: 5px 12px 21px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 12px 21px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 12px 21px 0px rgba(0, 0, 0, 0.75);
 }
 
 .nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    list-style: none;
+  display: flex;
+  /* justify-content: space-around; */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  list-style: none;
 }
 
 .nav__li {
-    margin: 5px 50px 5px 50px;
+  margin: 5px 50px 5px 50px;
 }
 
 .nav__link {
-    text-decoration: none;
- 
-    font-weight: bold;
-    font-size: 23px;
-    cursor: pointer;
-    color: rgb(57, 27, 82);
+  text-decoration: none;
+
+  font-weight: bold;
+  font-size: 23px;
+  cursor: pointer;
+  color: rgb(57, 27, 82);
 }
 
-.current-nav{
-    color: rgb(57, 27, 82);
+.current-nav {
+  color: rgb(57, 27, 82);
 }
 
 .nav__link:hover {
-    color: rgb(37, 17, 46);
+  color: rgb(37, 17, 46);
 }
 
-@media (max-width:785px) {
-    .nav {
-        height: 200px;
-        display: none;
-    }
-    .nav ul {
-        flex-direction: column;
-        height: 100%;
-        align-items: flex-start;
-    }
-    .nav__li {
-        width: 100%;
-        margin-left: 0px;
-        border-bottom: 1px solid gray;
-    }
-    .sm-nav {
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        height: 30px;
-        width: 30px;
-        background-color: rgb(194, 180, 180);
-    }
-    .nav__sm-close {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        height: 30px;
-        width: 30px;
-        background-color: white;
-    }
+@media (max-width: 785px) {
+  .nav {
+    height: 200px;
+    display: none;
+  }
+  .nav ul {
+    flex-direction: column;
+    height: 100%;
+    align-items: flex-start;
+  }
+  .nav__li {
+    width: 100%;
+    margin-left: 0px;
+    border-bottom: 1px solid gray;
+  }
+  .sm-nav {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    height: 30px;
+    width: 30px;
+    background-color: rgb(194, 180, 180);
+  }
+  .nav__sm-close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+  }
 }
