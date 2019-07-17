@@ -7,7 +7,9 @@ class Game {
 
     this.cointainer = document.querySelector('.container')
 
+    this.notes = []
     this.drum = null
+    this.gameBoxCenter = null
     this.gameBoxLeftLives = null
     this.gameBoxLeftLevel = null
     this.gameBoxRightScore = null
@@ -31,9 +33,9 @@ class Game {
     this.gameBoxLeftLevel.classList.add('game-box__left__level')
     gameBoxLeft.appendChild(this.gameBoxLeftLevel)
 
-    const gameBoxCenter = this.divCreate()
-    gameBoxCenter.classList.add('game-box__center')
-    this.gameBox.appendChild(gameBoxCenter)
+    this.gameBoxCenter = this.divCreate()
+    this.gameBoxCenter.classList.add('game-box__center')
+    this.gameBox.appendChild(this.gameBoxCenter)
 
     const gameBoxRight = this.divCreate()
     gameBoxRight.classList.add('game-box__right')
@@ -49,9 +51,6 @@ class Game {
 
     this.splashScreenInit()
 
-    this.drum = new Drum(gameBoxCenter)
-    gameBoxCenter.appendChild(this.drum)
-
     return this
   }
 
@@ -62,7 +61,8 @@ class Game {
 
     const splashText = this.divCreate()
     splashText.classList.add('splash-text')
-    splashText.innerText = 'To play use mouse, earn notes and avoid guitars!'
+    splashText.innerText =
+      "Play the Game ! Use mouse and catch flying notes that give You points. Don't catch anything else than notes, it causes loosing points. If You score 50 points level will be changed for higher. Game will be finished If You loose more than 25 points in level."
     splashScreen.appendChild(splashText)
 
     const playButton = this.divCreate()
@@ -79,8 +79,23 @@ class Game {
   }
 
   startGame() {
-    const interval = setInterval(() => {}, this.gameTick)
+    const interval = setInterval(this.body, this.gameTick)
+  }
+
+  addNote() {
+    const note = new Note()
+    this.notes.push(note)
+  }
+
+  body() {
+    this.gameBoxCenter.innerText = ''
+    this.gameBoxCenter.appendChild(drum)
+    this.notes.forEach((note, index) => {
+      note.move()
+      this.gameBoxCenter.appendChild(note)
+    })
   }
 }
 
-class Drum {}
+// this.drum = new Drum(gameBoxCenter)
+// gameBoxCenter.appendChild(this.drum)
