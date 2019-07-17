@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-.teammate_picture {
+.teammate-item__photo {
   border-radius: 100%;
   width: 250px;
   height: 250px;
@@ -39,4 +39,14 @@
   .teammate_picture {
     width: 180px;
   }
+}
+
+.teammates-animate {
+  animation-name: change;
+  animation-duration: 2s;
+}
+
+@keyframes change {
+  from {transform: scale(0, 0)}
+  to {transform: scale(1, 1)}
 }
