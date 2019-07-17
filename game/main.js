@@ -92,7 +92,7 @@ class Game {
     this.gameBoxCenter.appendChild(drum)
     this.notes.forEach((note, index) => {
       note.move()
-      this.gameBoxCenter.appendChild(note)
+      this.gameBoxCenter.appendChild(note.init())
     })
   }
 }
