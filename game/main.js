@@ -106,39 +106,41 @@ class Game {
     this.notes = this.notes.slice(0, index).concat(this.notes.slice(index + 1))
   }
 
+  isColision(note, index) {
+    if (note.positionY >= this.gameBoxCenterNotes.offsetHeight - 20 - note.a) {
+      if (
+        note.positionX >= this.drum.positionX &&
+        note.positionX <= this.drum.positionX + this.drum.drum.offsetWidth
+      ) {
+        this.score += 10
+        this.gameBoxRightScore.innerText = 'Score: ' + this.score
+        this.removeNote(index)
+        return
+      }
+
+      if (
+        note.positionX + note.a >= this.drum.positionX &&
+        note.positionX + note.a <=
+          this.drum.positionX + this.drum.drum.offsetWidth
+      ) {
+        this.score += 10
+        this.gameBoxRightScore.innerText = 'Score: ' + this.score
+        this.removeNote(index)
+        return
+      }
+    }
+
+    if (note.positionY >= this.gameBoxCenterNotes.offsetHeight - note.a - 5) {
+      this.removeNote(index)
+    }
+  }
+
   body() {
     this.gameBoxCenterNotes.innerText = ''
     this.notes.forEach((note, index) => {
       this.gameBoxCenterNotes.appendChild(note.note)
       note.move.call(note)
-
-      if (
-        note.positionY >=
-        this.gameBoxCenterNotes.offsetHeight - 20 - note.a
-      ) {
-        if (
-          note.positionX >= this.drum.positionX &&
-          note.positionX <= this.drum.positionX + this.drum.drum.offsetWidth
-        ) {
-          this.score += 10
-          this.gameBoxRightScore.innerText = 'Score: ' + this.score
-          removeNote(index)
-        }
-
-        if (
-          note.positionX + note.offsetWidth >= this.drum.positionX &&
-          note.positionX + note.offsetWidth <=
-            this.drum.positionX + this.drum.drum.offsetWidth
-        ) {
-          this.score += 10
-          this.gameBoxRightScore.innerText = 'Score: ' + this.score
-          removeNote(index)
-        }
-      }
-
-      if (note.positionY >= this.gameBoxCenterNotes.offsetHeight - note.a - 5) {
-        removeNote(index)
-      }
+      this.isColision(note, index)
     })
     this.counter++
     if (this.counter === 50) {
