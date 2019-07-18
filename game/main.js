@@ -7,9 +7,11 @@ class Game {
 
     this.cointainer = document.querySelector('.container')
 
+    this.counter = 0
     this.notes = []
     this.drum = null
     this.gameBoxCenter = null
+    this.gameBoxCenterNotes = null
     this.gameBoxLeftLives = null
     this.gameBoxLeftLevel = null
     this.gameBoxRightScore = null
@@ -36,6 +38,10 @@ class Game {
     this.gameBoxCenter = this.divCreate()
     this.gameBoxCenter.classList.add('game-box__center')
     this.gameBox.appendChild(this.gameBoxCenter)
+
+    this.gameBoxCenterNotes = this.divCreate()
+    this.gameBoxCenterNotes.classList.add('game-box__center__notes')
+    this.gameBoxCenter.appendChild(this.gameBoxCenterNotes)
 
     const gameBoxRight = this.divCreate()
     gameBoxRight.classList.add('game-box__right')
@@ -68,8 +74,14 @@ class Game {
     const playButton = this.divCreate()
     playButton.classList.add('play-button')
     playButton.innerText = 'Play it!'
-    playButton.addEventListener('click', function() {
+    playButton.addEventListener('click', () => {
       splashScreen.parentNode.removeChild(splashScreen)
+
+      this.drum = new Drum(this.gameBoxCenter)
+      this.drum.init()
+      this.drum.append()
+
+      this.startGame()
     })
     splashScreen.appendChild(playButton)
   }
@@ -79,23 +91,65 @@ class Game {
   }
 
   startGame() {
-    const interval = setInterval(this.body, this.gameTick)
+    const interval = setInterval(this.body.bind(this), this.gameTick)
   }
 
   addNote() {
-    const note = new Note()
+    const velocity = Math.floor(Math.random() * 50 + 100)
+    const a = Math.floor(Math.random() * 35 + 25)
+    const note = new Note(this.gameBoxCenterNotes, a, velocity)
+    note.init()
     this.notes.push(note)
   }
 
+  removeNote(index) {
+    this.notes = this.notes.slice(0, index).concat(this.notes.slice(index + 1))
+  }
+
   body() {
-    this.gameBoxCenter.innerText = ''
-    this.gameBoxCenter.appendChild(drum)
+    this.gameBoxCenterNotes.innerText = ''
     this.notes.forEach((note, index) => {
-      note.move()
-      this.gameBoxCenter.appendChild(note.init())
+      this.gameBoxCenterNotes.appendChild(note.note)
+      note.move.call(note)
+
+      if (
+        note.positionY >=
+        this.gameBoxCenterNotes.offsetHeight - 20 - note.a
+      ) {
+        if (
+          note.positionX >= this.drum.positionX &&
+          note.positionX <= this.drum.positionX + this.drum.drum.offsetWidth
+        ) {
+          this.score += 10
+          this.gameBoxRightScore.innerText = 'Score: ' + this.score
+          removeNote(index)
+        }
+
+        if (
+          note.positionX + note.offsetWidth >= this.drum.positionX &&
+          note.positionX + note.offsetWidth <=
+            this.drum.positionX + this.drum.drum.offsetWidth
+        ) {
+          this.score += 10
+          this.gameBoxRightScore.innerText = 'Score: ' + this.score
+          removeNote(index)
+        }
+      }
+
+      if (note.positionY >= this.gameBoxCenterNotes.offsetHeight - note.a - 5) {
+        removeNote(index)
+      }
     })
+    this.counter++
+    if (this.counter === 50) {
+      this.addNote()
+      this.counter = 0
+    }
   }
 }
 
+const game = new Game()
+game.init()
+game.addNote()
 // this.drum = new Drum(gameBoxCenter)
 // gameBoxCenter.appendChild(this.drum)
