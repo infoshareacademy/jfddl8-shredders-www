@@ -95,7 +95,7 @@ class Game {
   }
 
   addNote() {
-    const velocity = Math.floor(Math.random() * 50 + 100)
+    const velocity = (1 + this.level / 3) * Math.floor(Math.random() * 50 + 100)
     const a = Math.floor(Math.random() * 35 + 25)
     const note = new Note(this.gameBoxCenterNotes, a, velocity)
     note.init()
@@ -107,24 +107,20 @@ class Game {
   }
 
   isColision(note, index) {
-    if (note.positionY >= this.gameBoxCenterNotes.offsetHeight - 20 - note.a) {
+    if (note.positionY >= this.gameBoxCenterNotes.offsetHeight - note.a - 20) {
       if (
-        note.positionX >= this.drum.positionX &&
-        note.positionX <= this.drum.positionX + this.drum.drum.offsetWidth
+        (note.positionX >= this.drum.positionX &&
+          note.positionX <= this.drum.positionX + this.drum.drum.offsetWidth) ||
+        (note.positionX + note.a >= this.drum.positionX &&
+          note.positionX + note.a <=
+            this.drum.positionX + this.drum.drum.offsetWidth)
       ) {
         this.score += 10
         this.gameBoxRightScore.innerText = 'Score: ' + this.score
-        this.removeNote(index)
-        return
-      }
-
-      if (
-        note.positionX + note.a >= this.drum.positionX &&
-        note.positionX + note.a <=
-          this.drum.positionX + this.drum.drum.offsetWidth
-      ) {
-        this.score += 10
-        this.gameBoxRightScore.innerText = 'Score: ' + this.score
+        if (this.score % 100 === 0) {
+          this.level++
+          this.gameBoxLeftLevel.innerText = 'Level: ' + this.level
+        }
         this.removeNote(index)
         return
       }
@@ -132,6 +128,8 @@ class Game {
 
     if (note.positionY >= this.gameBoxCenterNotes.offsetHeight - note.a - 5) {
       this.removeNote(index)
+      this.lives--
+      this.gameBoxLeftLives.innerText = 'Lives: ' + this.lives
     }
   }
 
@@ -143,7 +141,7 @@ class Game {
       this.isColision(note, index)
     })
     this.counter++
-    if (this.counter === 50) {
+    if (this.counter === 50 - this.level * 5) {
       this.addNote()
       this.counter = 0
     }
