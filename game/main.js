@@ -16,6 +16,7 @@ class Game {
     this.gameBoxLeftLevel = null
     this.gameBoxRightScore = null
     this.gameBox = null
+    this.interval = null
   }
 
   init() {
@@ -55,8 +56,6 @@ class Game {
     this.gameBoxLeftLevel.innerText = 'Level: ' + this.level
     this.gameBoxRightScore.innerText = 'Score: ' + this.score
 
-    this.splashScreenInit()
-
     return this
   }
 
@@ -77,13 +76,37 @@ class Game {
     playButton.addEventListener('click', () => {
       splashScreen.parentNode.removeChild(splashScreen)
 
-      this.drum = new Drum(this.gameBoxCenter)
-      this.drum.init()
-      this.drum.append()
+      this.addDrum()
+      this.addNote()
 
       this.startGame()
     })
     splashScreen.appendChild(playButton)
+  }
+
+  loseScreen() {
+    const loseScreen = this.divCreate()
+    loseScreen.classList.add('splash-screen')
+    this.gameBox.appendChild(loseScreen)
+
+    const loseText = this.divCreate()
+    loseText.classList.add('splash-text')
+    loseText.innerText = `You lose.
+    Your score: ${this.score}`
+    loseScreen.appendChild(loseText)
+
+    const playAgainButton = this.divCreate()
+    playAgainButton.classList.add('play-button')
+    playAgainButton.innerText = 'Play again!'
+    playAgainButton.addEventListener('click', () => {
+      loseScreen.parentNode.removeChild(loseScreen)
+
+      this.addDrum()
+      this.addNote()
+
+      this.startGame()
+    })
+    loseScreen.appendChild(playAgainButton)
   }
 
   divCreate() {
@@ -91,7 +114,7 @@ class Game {
   }
 
   startGame() {
-    const interval = setInterval(this.body.bind(this), this.gameTick)
+    this.interval = setInterval(this.body.bind(this), this.gameTick)
   }
 
   addNote() {
@@ -100,6 +123,12 @@ class Game {
     const note = new Note(this.gameBoxCenterNotes, a, velocity)
     note.init()
     this.notes.push(note)
+  }
+
+  addDrum() {
+    this.drum = new Drum(this.gameBoxCenter)
+    this.drum.init()
+    this.drum.append()
   }
 
   removeNote(index) {
@@ -133,15 +162,33 @@ class Game {
     }
   }
 
+  loseGame() {
+    clearInterval(this.interval)
+    this.cointainer.innerText = ''
+    this.init()
+    this.loseScreen()
+    this.lives = 5
+    this.level = 1
+    this.score = 0
+    this.notes = []
+  }
+
   body() {
     this.gameBoxCenterNotes.innerText = ''
+
+    if (this.lives <= 0) {
+      this.loseGame()
+      return
+    }
+
     this.notes.forEach((note, index) => {
       this.gameBoxCenterNotes.appendChild(note.note)
       note.move.call(note)
       this.isColision(note, index)
     })
+
     this.counter++
-    if (this.counter === 50 - this.level * 5) {
+    if (this.counter >= 50 - this.level * 5) {
       this.addNote()
       this.counter = 0
     }
@@ -150,6 +197,6 @@ class Game {
 
 const game = new Game()
 game.init()
-game.addNote()
+game.splashScreenInit()
 // this.drum = new Drum(gameBoxCenter)
 // gameBoxCenter.appendChild(this.drum)
