@@ -1,0 +1,88 @@
+* {
+  font-size: 20px;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-box {
+  position: relative;
+  display: flex;
+  width: 700px;
+  height: 400px;
+  border: 1px solid black;
+}
+
+.game-box__left {
+  flex-basis: 10%;
+}
+
+.game-box__center {
+  position: relative;
+  flex-basis: 80%;
+  border: 1px solid black;
+}
+
+.game-box__center__notes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.game-box__right {
+  flex-basis: 10%;
+}
+
+.game-box__left__lives {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.game-box__left__level {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.game-box__right__score {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  background-color: grey;
+  z-index: 100;
+}
+
+.play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 100px;
+  height: 50px;
+  border: 1px solid black;
+  margin-bottom: 30px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.splash-text {
+  margin: 0px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
