@@ -9,8 +9,12 @@ class Note {
     this.containerWidth = this.container.offsetWidth
     this.containerHeight = this.container.offsetHeight
     this.positionY = 0
-    this.positionX = Math.random() * 0.9 * this.containerWidth
+    this.positionX = Math.max(
+      this.a / 2,
+      Math.random() * this.containerWidth - this.a
+    )
   }
+
   init() {
     this.note = document.createElement('div')
     this.note.style.width = this.a + 'px'
@@ -25,7 +29,7 @@ class Note {
   }
 
   move() {
-    this.positionY += (this.velocity * this.gameTick) / 1250
+    this.positionY += (this.velocity / 1000) * this.gameTick
     this.note.style.top = this.positionY + 'px'
   }
 }

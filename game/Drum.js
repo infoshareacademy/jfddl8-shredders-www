@@ -8,14 +8,14 @@ class Drum {
   moveDrum(event) {
     this.positionX =
       event.pageX -
-      this.container.offsetLeft -
-      document.querySelector('.game-box').offsetLeft -
+      this.container.getBoundingClientRect().left -
       this.drum.offsetWidth / 2
-    if (this.positionX <= 0) {
-      this.positionX = 0
-    }
+
+    if (this.positionX <= 0) this.positionX = 0
+
     if (this.positionX + this.drum.offsetWidth >= this.container.offsetWidth)
       this.positionX = this.container.offsetWidth - this.drum.offsetWidth - 2
+
     this.drum.style.left = this.positionX + 'px'
   }
 

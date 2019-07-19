@@ -75,7 +75,6 @@ class Game {
     playButton.innerText = 'Play it!'
     playButton.addEventListener('click', () => {
       splashScreen.parentNode.removeChild(splashScreen)
-
       this.addDrum()
       this.addNote()
 
@@ -100,7 +99,8 @@ class Game {
     playAgainButton.innerText = 'Play again!'
     playAgainButton.addEventListener('click', () => {
       loseScreen.parentNode.removeChild(loseScreen)
-
+      this.cointainer.innerText = ''
+      this.init()
       this.addDrum()
       this.addNote()
 
@@ -132,7 +132,7 @@ class Game {
   }
 
   removeNote(index) {
-    this.notes = this.notes.slice(0, index).concat(this.notes.slice(index + 1))
+    this.notes = this.notes.filter((note, i) => i !== index)
   }
 
   isColision(note, index) {
@@ -151,7 +151,6 @@ class Game {
           this.gameBoxLeftLevel.innerText = 'Level: ' + this.level
         }
         this.removeNote(index)
-        return
       }
     }
 
@@ -164,8 +163,6 @@ class Game {
 
   loseGame() {
     clearInterval(this.interval)
-    this.cointainer.innerText = ''
-    this.init()
     this.loseScreen()
     this.lives = 5
     this.level = 1
@@ -183,7 +180,7 @@ class Game {
 
     this.notes.forEach((note, index) => {
       this.gameBoxCenterNotes.appendChild(note.note)
-      note.move.call(note)
+      note.move()
       this.isColision(note, index)
     })
 
