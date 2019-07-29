@@ -1,0 +1,33 @@
+.feature-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  align-content: space-between;
+}
+
+.feature-container-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+}
+
+@media (min-width: 1150px) {
+  .feature-container {
+    display:flex;
+    flex-direction: column;
+  }
+  .feature-container:nth-child(2) div:nth-child(1){
+    order: 5;
+  }
+  .feature-img {
+    
+    padding: 10px 0px
+  }
+  .img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
