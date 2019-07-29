@@ -13,7 +13,7 @@
   font-size: 30px;
 }
 
-@media (min-width: 1150px) {
+@media (max-width: 1150px) {
   .feature-container {
     display:flex;
     flex-direction: column;
