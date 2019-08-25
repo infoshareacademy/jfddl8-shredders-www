@@ -7,10 +7,24 @@
 
 .feature-container-text {
   display: flex;
+  flex-basis: 50%;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 30px;
+  padding: 20px;
+  line-height: 130%;
+}
+
+.img-container {
+  display: flex;
+  height: 300px;
+  width: 50%;
+}
+
+.feature-img {
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 1150px) {
@@ -21,13 +35,10 @@
   .feature-container:nth-child(2) div:nth-child(1){
     order: 5;
   }
-  .feature-img {
-    
-    padding: 10px 0px
-  }
   .img-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width:100%;
   }
 }

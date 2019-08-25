@@ -31,8 +31,8 @@ main {
 }
 
 footer {
-  margin-top: 5px;
-  padding: 10px 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
+  background-image: linear-gradient(90deg, rgb(95, 111, 175), rgb(49, 53, 66));
 }
