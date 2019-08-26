@@ -35,14 +35,23 @@
   .feature-container {
     display:flex;
     flex-direction: column;
+    justify-content: center;
+    align-content :center;
+  
   }
+
+  .feature-container-text {
+    display: flex;
+    justify-content: flex-end;
+  
+  }
+
   .feature-container:nth-child(2) div:nth-child(1){
     order: 5;
   }
-  .img-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
+
+  .feature-img {
+    width: 100%;
+    height: 100%;
   }
 }
